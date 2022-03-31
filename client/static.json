@@ -2,7 +2,7 @@
   "root": "build/",
   "clean_urls": false,
   "routes": {
-    "/chat/**": "index.html",
+    "/chat**": "index.html",
     "/**": "index.html"
   }
 }

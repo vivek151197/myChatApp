@@ -1,0 +1,100 @@
+body {
+  background-color: floralwhite;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.messageInfo {
+  width: 50%;
+  margin: auto;
+  height: 100%;
+}
+
+.chat {
+  border: solid black 1px;
+  border-radius: 10px;
+  height: 65%;
+  padding-top: 0;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  background-color: white;
+  margin-top: 5%;
+}
+
+.sendMessage {
+  display: flex;
+  margin-top: 5%;
+  justify-content: space-between;
+  height: fit-content;
+}
+
+.input {
+  flex-grow: 1;
+  font-size: medium;
+  padding: 5px;
+  border-radius: 5px;
+  border: solid black 1px;
+}
+
+button {
+  border-radius: 5px;
+  border: solid black 1px;
+  padding: 10px;
+  background-color: forestgreen;
+}
+
+img {
+  width: 40px;
+  border-radius: 100%;
+}
+
+.userInfo {
+  border: solid #5c4444 1px;
+  padding: 5px;
+  height: 35px;
+  border-radius: 10px;
+  background-color: rgb(163, 167, 164);
+  display: flex;
+}
+
+.profile {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.name {
+  margin-left: 35%;
+}
+
+.eachMessage {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 2px;
+  padding-bottom: 1px;
+  border: solid 1px black;
+  margin: 3px;
+  border-radius: 20px;
+  inline-size: 45%;
+  word-wrap: break-word;
+}
+
+.myMessage {
+  margin-left: 49%;
+  background-color: lightgreen;
+}
+
+.othersMessage {
+  margin-left: 10px;
+  background-color: rgb(163, 167, 164);
+}
+
+.otherUserName {
+  font-size: smaller;
+  color: mediumblue;
+}

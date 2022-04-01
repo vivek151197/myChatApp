@@ -30,6 +30,8 @@ const ChatsPage = () => {
 
   useEffect(() => {
     localStorage.setItem('messages', JSON.stringify(messages))
+    const chatscroll = document.getElementsByClassName('chat')
+    if (chatscroll[0]) chatscroll[0].scrollTop = chatscroll[0].scrollHeight
   }, [messages])
 
   const messageHandler = e => {
@@ -86,7 +88,7 @@ const ChatsPage = () => {
                 Log Out
               </button>
             </div>
-            {renderChat()}
+            <div className='messages'>{renderChat()}</div>
           </div>
           <div className='sendMessage'>
             <input

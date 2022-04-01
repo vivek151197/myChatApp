@@ -12,7 +12,7 @@ const ChatsPage = () => {
   const [messages, setMessages] = useState([])
   const navigate = useNavigate()
 
-  if (useAuth0().isAuthenticated === false) {
+  if (!isLoading && !user) {
     navigate('/')
   }
 
@@ -21,8 +21,8 @@ const ChatsPage = () => {
   }, [isLoading])
 
   useEffect(() => {
-    const storedMessages = localStorage.getItem('messages')
-    storedMessages && setMessages(JSON.parse(storedMessages))
+    const storedMessages = JSON.parse(localStorage.getItem('messages'))
+    storedMessages && setMessages(storedMessages)
     socket.on('message', ({ name, message }) => {
       setMessages(messages => [...messages, { name, message }])
     })

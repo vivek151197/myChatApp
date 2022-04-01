@@ -4,7 +4,7 @@ import Profile from './Profile'
 import { useAuth0 } from '@auth0/auth0-react'
 import { useNavigate } from 'react-router'
 
-const socket = io.connect('https://my-chat-app-viv.heroku.com/')
+const socket = io.connect('https://my-chat-app-viv.herokuapp.com/')
 
 const ChatsPage = () => {
   const { isLoading, user, logout } = useAuth0()
@@ -66,7 +66,7 @@ const ChatsPage = () => {
   }
 
   const logOutHandler = () => {
-    logout({ returnTo: 'https://my-chat-app-viv.heroku.com/' })
+    logout({ returnTo: 'https://my-chat-app-viv.herokuapp.com/' })
   }
 
   return (

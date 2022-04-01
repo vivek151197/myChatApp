@@ -45,24 +45,27 @@ const ChatsPage = () => {
   }
 
   const renderChat = () => {
-    return messages.map(({ name, message }, index) => (
-      <div
-        key={index}
-        className={`eachMessage ${
-          name === user.name ? 'myMessage' : 'othersMessage'
-        }`}
-      >
-        {name === user.name ? (
-          message
-        ) : (
-          <div>
-            <span className='otherUserName'>{name}</span>
-            <br />
-            {message}
-          </div>
-        )}
-      </div>
-    ))
+    return (
+      user !== undefined &&
+      messages.map(({ name, message }, index) => (
+        <div
+          key={index}
+          className={`eachMessage ${
+            name === user.name ? 'myMessage' : 'othersMessage'
+          }`}
+        >
+          {name === user.name ? (
+            message
+          ) : (
+            <div>
+              <span className='otherUserName'>{name}</span>
+              <br />
+              {message}
+            </div>
+          )}
+        </div>
+      ))
+    )
   }
 
   const logOutHandler = () => {

@@ -4,7 +4,7 @@ import Profile from './Profile'
 import { useAuth0 } from '@auth0/auth0-react'
 import { useNavigate } from 'react-router'
 
-const socket = io.connect('https://my-chat-app-viv.herokuapp.com/')
+const socket = io.connect('my-chat-app-viv.herokuapp.com/')
 
 const ChatsPage = () => {
   const { isLoading, user, logout } = useAuth0()
@@ -71,7 +71,7 @@ const ChatsPage = () => {
   }
 
   const logOutHandler = () => {
-    logout({ returnTo: 'https://my-chat-app-viv.herokuapp.com/' })
+    logout({ returnTo: 'my-chat-app-viv.herokuapp.com/' })
   }
 
   return (
@@ -81,10 +81,7 @@ const ChatsPage = () => {
           <div className='chat'>
             <div className='userInfo'>
               <Profile />
-              <button
-                onClick={logOutHandler}
-                style={{ backgroundColor: 'rgb(139, 34, 34)' }}
-              >
+              <button onClick={logOutHandler} className='logOut'>
                 Log Out
               </button>
             </div>
@@ -99,7 +96,9 @@ const ChatsPage = () => {
               className='input'
               onKeyUp={e => (e.key === 'Enter' ? submitMessage() : '')}
             />
-            <button onClick={submitMessage}>Send Message</button>
+            <button onClick={submitMessage} className='send'>
+              Send Message
+            </button>
           </div>
         </div>
       </div>

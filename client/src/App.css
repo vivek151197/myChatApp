@@ -41,11 +41,20 @@ body {
   border: solid black 1px;
 }
 
-button {
+.send {
   border-radius: 5px;
   border: solid black 1px;
   padding: 10px;
   background-color: forestgreen;
+  color: white;
+  font-size: medium;
+}
+
+.logOut {
+  background-color: rgb(245, 70, 39);
+  border-radius: 5px;
+  border: solid black 1px;
+  padding: 10px;
 }
 
 img {
@@ -60,6 +69,8 @@ img {
   border-radius: 10px;
   background-color: rgb(163, 167, 164);
   display: flex;
+  position: sticky;
+  top: 0;
 }
 
 .profile {

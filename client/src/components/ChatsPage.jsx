@@ -4,6 +4,7 @@ import Profile from './Profile'
 import { useAuth0 } from '@auth0/auth0-react'
 import { useNavigate } from 'react-router'
 
+//replace the below with http://localhost:5000 ur to test for localhost server
 const socket = io.connect('https://my-chat-app-viv.herokuapp.com/')
 
 const ChatsPage = () => {
@@ -71,6 +72,8 @@ const ChatsPage = () => {
       ))
     )
   }
+
+  //replace the below with http://localhost:3000 ur to test for localhost server
 
   const logOutHandler = () => {
     logout({ returnTo: 'https://my-chat-app-viv.herokuapp.com/' })

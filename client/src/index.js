@@ -9,6 +9,7 @@ ReactDOM.render(
     <Auth0Provider
       domain='dev-qz-k1foy.us.auth0.com'
       clientId='yvk2O8a5mNWI4IvqhTxB5WahwEMtny5v'
+      //replace the below with http://localhost:3000/chat your to test for localhost server
       redirectUri={'https://my-chat-app-viv.herokuapp.com/chat'}
     >
       <App />

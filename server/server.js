@@ -34,8 +34,8 @@ if (process.env.NODE_ENV === 'production') {
 //--------------------Deploy-------------//
 
 io.on('connection', socket => {
-  socket.on('message', ({ name, message }) => {
-    io.emit('message', { name, message })
+  socket.on('message', ({ name, message, email }) => {
+    io.emit('message', { name, message, email })
   })
 })
 

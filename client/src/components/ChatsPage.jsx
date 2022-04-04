@@ -8,7 +8,7 @@ const socket = io.connect('https://my-chat-app-viv.herokuapp.com/')
 
 const ChatsPage = () => {
   const { isLoading, user, logout } = useAuth0()
-  const [data, setData] = useState({ message: '', name: '' })
+  const [data, setData] = useState({ message: '', name: '', email: '' })
   const [messages, setMessages] = useState([])
   const navigate = useNavigate()
 
@@ -17,14 +17,15 @@ const ChatsPage = () => {
   }
 
   useEffect(() => {
-    if (user !== undefined) setData({ message: '', name: user.name })
+    if (user !== undefined)
+      setData({ message: '', name: user.name, email: user.email })
   }, [isLoading])
 
   useEffect(() => {
     const storedMessages = JSON.parse(localStorage.getItem('messages'))
     storedMessages && setMessages(storedMessages)
-    socket.on('message', ({ name, message }) => {
-      setMessages(messages => [...messages, { name, message }])
+    socket.on('message', ({ name, message, email }) => {
+      setMessages(messages => [...messages, { name, message, email }])
     })
   }, [])
 
@@ -35,28 +36,29 @@ const ChatsPage = () => {
   }, [messages])
 
   const messageHandler = e => {
-    setData({ message: e.target.value, name: data.name })
+    setData({ message: e.target.value, name: data.name, email: data.email })
   }
 
   const submitMessage = () => {
     if (data.message) {
-      const { name, message } = data
-      socket.emit('message', { name, message })
-      setData({ name, message: '' })
+      const { name, message, email } = data
+
+      socket.emit('message', { name, message, email })
+      setData({ name, email, message: '' })
     }
   }
 
   const renderChat = () => {
     return (
       user !== undefined &&
-      messages.map(({ name, message }, index) => (
+      messages.map(({ name, message, email }, index) => (
         <div
           key={index}
           className={`eachMessage ${
-            name === user.name ? 'myMessage' : 'othersMessage'
+            email === user.email ? 'myMessage' : 'othersMessage'
           }`}
         >
-          {name === user.name ? (
+          {email === user.email ? (
             message
           ) : (
             <div>
